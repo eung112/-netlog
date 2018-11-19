@@ -12,7 +12,7 @@ declare var $ :any;
 export class LoginComponent implements OnInit {
   username = '';
   password = '';
-  users = {};
+  users: any;
   error_txt = '';
 
   constructor(private usersService: UsersService, private router: Router) { }
@@ -27,9 +27,9 @@ export class LoginComponent implements OnInit {
 
       sessionStorage.setItem('loginuser',JSON.stringify(this.users));
       if(this.users.users_status == 'admin')
-      this.router.navigate(['admin']);
+      this.router.navigate(['/admin']);
       else
-      this.router.navigate(['user']);
+      this.router.navigate(['/user']);
     }else{
       this.error_txt = 'Invalid Username or Password';
       $('.alert').show('');
