@@ -1,0 +1,109 @@
+<button type="button" class="btn btn-success m-3" data-toggle="modal" data-target="#adduserModal"><i class="fas fa-plus-circle fa-lg"></i>
+  Add</button>
+<table class="table table-dark ">
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Status</th>
+      <th>Fullname</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user.users_name }}</td>
+      <td class="text-center">{{ user.users_status }}</td>
+      <td> {{ user.users_full }}</td>
+      <td class="text-center"><i class="fas fa-edit text-warning"></i></td>
+      <td class="text-center"><i class="fas fa-trash text-danger"></i></td>
+    </tr>
+  </tbody>
+</table>
+
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true"
+  id="adduserModal">
+
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Insert New User</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+            <i class="fas fa-user"></i>
+          </div>
+        </div>
+        <input type="text" id="users_name" name="users_name" placeholder="Username" class="form-control" [(ngModel)]="newuser.users_name">
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+            <i class="fas fa-key"></i>
+          </div>
+        </div>
+        <input type="text" id="password" name="password" placeholder="Password" class="form-control" [(ngModel)]="newuser.users_password">
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+            <i class="fas fa-user"></i>
+          </div>
+        </div>
+        <input type="text" id="users_fullname" name="users_fullname" placeholder="Fullname" class="form-control"
+          [(ngModel)]="newuser.users_fullname">
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+            <i class="fas fa-key"></i>
+          </div>
+        </div>
+        <input type="text" id="users_phone" name="users_phone" placeholder="Phone" class="form-control" [(ngModel)]="newuser.users_phone">
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+            <i class="fas fa-user"></i>
+          </div>
+        </div>
+        <input type="text" id="users_email" name="users_email" placeholder="Email" class="form-control" [(ngModel)]="newuser.users_email">
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+            <i class="fas fa-key"></i>
+          </div>
+        </div>
+        <select class="form-control" [(ngModel)]="status">
+          <option value="admin">Admin</option>
+          <option value="user">User</option>
+          </select>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-success"(clik)="addUser()">Save</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
