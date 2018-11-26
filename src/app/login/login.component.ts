@@ -29,8 +29,13 @@ ngOnInit() {
       sessionStorage.setItem('loginuser',JSON.stringify(this.users));
       if(this.users.users_status == 'admin')
       this.router.navigate(['/admin']);
-      else
+      else  if(this.users.users_status == 'user')
       this.router.navigate(['/user']);
+        else{
+          this.error_txt = 'Invalid Username or Password';
+          $('.alert').show('');
+        }
+       
     }else{
       this.error_txt = 'Invalid Username or Password';
       $('.alert').show('');

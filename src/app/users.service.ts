@@ -24,11 +24,21 @@ async getAllUsers(){
       Apikey: 'NetLogApi',
       fn: 'SelectAll'
     });
-    console.log(result);
     return result.data;
   }
-async inserUser(newuser){
+
+  async inserUser(newuser){
+  newuser.Apikey = 'NetLogApi';
+  newuser.fn='Insert';
+
   let result =await axios.post(this.apiurl,newuser);
   return result.data;
   }
+  async updateUser(edituser){
+    edituser.Apikey = 'NetLogApi';
+    edituser.fn='Update';
+    console.log(edituser);
+    let result =await axios.post(this.apiurl,edituser);
+    return result.data;
+    }
 }
